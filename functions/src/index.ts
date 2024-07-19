@@ -2,7 +2,7 @@ import * as admin from 'firebase-admin';
 import * as crypto from 'crypto';
 import * as bcrypt from 'bcrypt';
 import * as functions from 'firebase-functions';
-import { differenceInYears } from 'date-fns';
+import { calculateAge } from './utils/utils';
 
 admin.initializeApp();
 
@@ -72,11 +72,8 @@ export const onUpdateCustomer = functions.firestore
     }
   });
 
-function calculateAge(birthday: Date): number {
-  return differenceInYears(new Date(), birthday);
-}
-
 const firestore = admin.firestore();
+
 firestore.settings({
   host: 'localhost:8080',
   ssl: false,

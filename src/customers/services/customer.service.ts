@@ -16,6 +16,10 @@ export class CustomerService {
   ): Promise<Customer> {
     const existingCustomer = await this.customerRepository.findById(id);
 
+    if (!existingCustomer) {
+      throw new Error('Update failed');
+    }
+
     const updateCustomer = await this.customerRepository.update(id, {
       ...existingCustomer,
       ...customer,

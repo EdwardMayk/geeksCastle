@@ -1,4 +1,3 @@
-// src/customers/services/customer.service.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
 import { CustomerService } from './customer.service';
 import { CustomerRepository } from '../repository/customer.repository';
